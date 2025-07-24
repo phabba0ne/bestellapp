@@ -1,58 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Bestell App</title>
-    <link rel="stylesheet" href="style.css" />
-    <link rel="stylesheet" href="styles/globals.css" />
-    <link rel="stylesheet" href="styles/cart.css" />
-    <link
-      rel="shortcut icon"
-      href="assets/icons/favicon.ico"
-      type="image/x-icon" />
-  </head>
 
-  <body>
-    <!-- #region header -->
-    <header>
-      <img id="logo" src="assets/logos/Logo.png" alt="Bestell App Logo" />
-    </header>
-    <!-- #endregion header -->
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bestell App</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="styles/globals.css" />
+  <link rel="stylesheet" href="styles/cart.css" />
+  <link rel="shortcut icon" href="assets/icons/favicon.ico" type="image/x-icon" />
+</head>
 
-    <main>
-      <h1>Restaurant Flavio</h1>
-      <span>Italienisch für Feinschmecker</span>
-      <!-- #region contentWrapper -->
-      <div class="contentWrapper">
-        <div id="renderDishes"></div>
+<body>
+  <!-- #region header -->
+  <header>
+    <img id="logo" src="assets/logos/Logo.png" alt="Bestell App Logo" />
+  </header>
+  <!-- #endregion header -->
 
-        <!-- #region cartWrapper -->
+  <main>
+    <h1>Restaurant Flavio</h1>
+    <span>Italienisch für Feinschmecker</span>
+    <!-- #region contentWrapper -->
+    <div class="contentWrapper">
+      <div id="renderDishes"></div>
 
-        <aside class="cartWrapper">
-          <!-- #region cartList -->
+      <!-- #region cartWrapper -->
 
-          <div id="cart">
-            <h3>Your cart:</h3>
-            <ul id="cartItems"></ul>
-            <h3>Total order:</h3>
-            <div id="cartTotal"></div>
+      <aside class="cartWrapper">
+        <!-- #region cartList -->
 
-            <button id="orderBtn">orderBtn</button>
-          </div>
-          <!-- #endregion cartList -->
-        </aside>
-        <!-- #endregion cartWrapper -->
-      </div>
+        <div id="cart">
+          <h3>Your cart:</h3>
+          <ul id="cartItems"></ul>
+          <h3>Total order:</h3>
+          <div id="cartTotal"></div>
 
-      <!-- #endregion contentWrapper -->
-    </main>
+          <button id="orderBtn">ORDER</button>
+          <p id="orderStatus" class="dNone">
+            Deine Testbestellung ist auf dem Weg!
+          </p>
+        </div>
+        <!-- #endregion cartList -->
+      </aside>
+      <!-- #endregion cartWrapper -->
+    </div>
 
-    <!-- #region footer -->
-    <footer></footer>
-    <!-- #endregion footer -->
+    <!-- #endregion contentWrapper -->
+  </main>
 
-    <script src="scripts/template.js" defer></script>
-    <script src="script.js" defer></script>
-  </body>
+  <!-- #region footer -->
+  <footer></footer>
+  <!-- #endregion footer -->
+
+  <script src="scripts/template.js" defer></script>
+  <script src="script.js" defer></script>
+</body>
+
 </html>

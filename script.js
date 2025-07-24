@@ -111,8 +111,21 @@ dishesManager.addDish({
 // makes sure everything is there before I use it, waits for DOMready event ...
 document.addEventListener("DOMContentLoaded", function () {
   const allDishes = dishesManager.getAllDishes();
-  // ... then renders all dishes
   renderDishes(allDishes);
+
+  const orderBtn = document.getElementById("orderBtn");
+  const orderStatus = document.getElementById("orderStatus");
+
+  orderBtn.addEventListener("click", () => {
+    cart.empty();
+    cart.render();
+    orderStatus.textContent = "Deine Testbestellung ist auf dem Weg! 🍕";
+    orderStatus.classList.remove("dNone");
+
+    setTimeout(() => {
+      orderStatus.classList.add("dNone");
+    }, 3000);
+  });
 });
 
 // #endregion initialization
@@ -185,6 +198,7 @@ class Cart {
 
   empty() {
     this.items = [];
+    this.render();
   }
 
   render() {

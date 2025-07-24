@@ -1,3 +1,14 @@
+.dNone {
+  display: none;
+}
+
+#orderBtn {
+  font-size: 2dvw;
+  color: white;
+  background-color: orange;
+  border-style: none;
+}
+
 .cartWrapper {
   width: 20dvw;
   color: rgb(215, 171, 66);
@@ -52,8 +63,15 @@
           background-image: url("../assets/icons/icon_add.png");
         }
 
-        .delBtn{
+        .delBtn {
           background-image: url("../assets/icons/icon_delete.png");
+        }
+
+        #orderMessage {
+          margin-top: 1rem;
+          color: green;
+          font-weight: bold;
+          font-size: 1.1rem;
         }
 
         .quantityInCart {
