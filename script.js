@@ -170,12 +170,21 @@ class Cart {
     this.render();
   }
 
+  removeDishCompletely(dishId) {
+    this.items = this.items.filter((d) => d.id !== dishId);
+    this.render();
+  }
+
   total() {
     let sum = 0;
     for (let i = 0; i < this.items.length; i++) {
       sum += this.items[i].price * this.items[i].amountInCart;
     }
     return sum.toLocaleString("de-DE");
+  }
+
+  empty() {
+    this.items = [];
   }
 
   render() {
@@ -197,6 +206,12 @@ class Cart {
 
       const addBtn = wrapper.querySelector(".addBtn");
       const removeBtn = wrapper.querySelector(".removeBtn");
+      const delBtn = wrapper.querySelector(".delBtn");
+      if (delBtn) {
+        delBtn.addEventListener("click", () =>
+          this.removeDishCompletely(dish.id)
+        );
+      }
 
       if (addBtn) addBtn.addEventListener("click", () => this.add(dish));
       if (removeBtn)
@@ -221,25 +236,20 @@ function renderCartTotal(cartTotal) {
   }
 }
 
-
 // class cart
 
-// TODO next: order button which deletes cart and triggers a prompt telling that a test order is on its way
-
-// TODO: delete whole order position (per added dish) from cart
+// TODO: order button which deletes cart and triggers a prompt telling that a test order is on its way
+// (button named orderBtn DONE)
 
 // TODO: cart appears as a row at the bottom latest at with 320px;
 // process: dNone cart at that point and show a button that calls an overlay cart (with same functionality ?)
 
 // TEST: responsive to a width of 320px without vertical scroll bars?
 
-
 // class restaurant
 
 // TODO: show restaurant name, stars, desc, information (deliveryPrice) statically
 
-
 //optional
 
 // optional TODO: show meal slider linking to sections pizza, pasta, etc. separated from images
-

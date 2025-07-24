@@ -5,7 +5,7 @@ function getDishTemplate(dish) {
       <div>
         <h2>${dish.name}</h2>
         <p>${dish.desc}</p>
-        <span>${dish.price.toLocaleString('de-DE')} €</span>
+        <span>${dish.price.toLocaleString("de-DE")} €</span>
       </div>
     </div>
   `;
@@ -16,11 +16,14 @@ function getCartItemTemplate(dish) {
     <div class="itemWrapper" data-id="${dish.id}">
       <div class="showName">${dish.name}</div>
       <li>
-        <button class="removeBtn" aria-label="Remove"></button>
+        <button class="removeBtn" aria-label="Remove Dish"></button>
         <span class="quantityInCart">${dish.amountInCart}</span>
-        <button class="addBtn" aria-label="Add"></button>
+        <button class="addBtn" aria-label="Add Dish"></button>
+        <button class="delBtn" aria-label="Empty Cart"></button>
       </li>
-      <div class="showOrderPrice">${(dish.price * dish.amountInCart).toLocaleString('de-DE')} €</div>
+      <div class="showOrderPrice">${(
+        dish.price * dish.amountInCart
+      ).toLocaleString("de-DE")} €</div>
     </div>
   `;
 }
