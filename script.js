@@ -214,11 +214,29 @@ const cart = new Cart();
 
 //# endregion instantiation
 
-// #region testing
 function renderCartTotal(cartTotal) {
   const cartTotalRef = document.getElementById("cartTotal");
   if (cartTotalRef) {
     cartTotalRef.textContent = cartTotal + " €";
   }
 }
-// #endregion testing
+
+
+// class cart
+
+// TODO next: prevent cart overflow when many dishes in container
+
+// class restaurant
+
+// TODO: show restaurant name, stars, desc, information (deliveryPrice) statically
+
+// TODO: order button which deletes cart and triggers a prompt telling that a test order is on its way
+
+// TODO: delete whole order positions from cart 
+
+// TODO: cart should not stick to the bottom when reached and it should appear as a row at the bottom then
+
+//TODO: responsive to a width of 320px without vertical scroll bars, dNone cart at that point and, e.g., show a button that calls an overlay cart with same functionality
+
+// optional TODO: show meal slider linking to sections pizza, pasta, etc. separated from images
+
