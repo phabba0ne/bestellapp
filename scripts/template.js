@@ -11,7 +11,6 @@ function getDishTemplate(dish) {
   `;
 }
 
-// TODO next: sum of all order positions
 function getCartItemTemplate(dish) {
   return `
     <div class="itemWrapper" data-id="${dish.id}">

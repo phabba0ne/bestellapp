@@ -178,8 +178,6 @@ class Cart {
     return sum.toLocaleString("de-DE");
   }
 
-  // TODO next: sum of all order positions
-
   render() {
     const cartRef = document.getElementById("cartItems");
     cartRef.innerHTML = "";
@@ -187,6 +185,8 @@ class Cart {
     for (let i = 0; i < this.items.length; i++) {
       cartRef.innerHTML += getCartItemTemplate(this.items[i]);
     }
+
+    renderCartTotal(this.total());
 
     // Attach events after rendering
     const itemWrappers = document.querySelectorAll(".itemWrapper");
@@ -204,7 +204,6 @@ class Cart {
     }
   }
 }
-
 // #endregion Cart
 
 //# region instantiation
@@ -214,3 +213,12 @@ const allDishes = dishesManager.getAllDishes();
 const cart = new Cart();
 
 //# endregion instantiation
+
+// #region testing
+function renderCartTotal(cartTotal) {
+  const cartTotalRef = document.getElementById("cartTotal");
+  if (cartTotalRef) {
+    cartTotalRef.textContent = cartTotal + " €";
+  }
+}
+// #endregion testing
