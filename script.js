@@ -224,19 +224,22 @@ function renderCartTotal(cartTotal) {
 
 // class cart
 
-// TODO next: prevent cart overflow when many dishes in container
+// TODO next: order button which deletes cart and triggers a prompt telling that a test order is on its way
+
+// TODO: delete whole order position (per added dish) from cart
+
+// TODO: cart appears as a row at the bottom latest at with 320px;
+// process: dNone cart at that point and show a button that calls an overlay cart (with same functionality ?)
+
+// TEST: responsive to a width of 320px without vertical scroll bars?
+
 
 // class restaurant
 
 // TODO: show restaurant name, stars, desc, information (deliveryPrice) statically
 
-// TODO: order button which deletes cart and triggers a prompt telling that a test order is on its way
 
-// TODO: delete whole order positions from cart 
-
-// TODO: cart should not stick to the bottom when reached and it should appear as a row at the bottom then
-
-//TODO: responsive to a width of 320px without vertical scroll bars, dNone cart at that point and, e.g., show a button that calls an overlay cart with same functionality
+//optional
 
 // optional TODO: show meal slider linking to sections pizza, pasta, etc. separated from images
 
