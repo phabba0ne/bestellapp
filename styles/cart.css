@@ -1,0 +1,67 @@
+.cartWrapper {
+  width: 20dvw;
+  color: rgb(215, 171, 66);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  div {
+    position: sticky;
+    top: 0;
+
+    h3 {
+      font-size {
+        font-size: 2dvw;
+      }
+    }
+
+    ul {
+      div {
+        padding: 1dvh 0;
+      }
+
+      li {
+        list-style-type: none;
+        display: flex;
+        justify-content: center;
+        .cartDishName {
+          font-size: 1.5dvw;
+        }
+
+        button {
+          padding: 1dvh 1dvw;
+          width: 3dvw;
+          aspect-ratio: 1/1;
+          padding: 1dvw 1dvh;
+          border: none;
+          background-color: transparent;
+          background-size: contain;
+          background-repeat: no-repeat;
+          background-position: center;
+          background-color: rgb(228, 200, 147);
+        }
+        button:hover {
+          background-color: rgb(213, 169, 86);
+        }
+
+        .removeBtn {
+          background-image: url("../assets/icons/icon_remove.png");
+        }
+
+        .addBtn {
+          background-image: url("../assets/icons/icon_add.png");
+        }
+
+        .quantityInCart {
+          width: 10dvw;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          color: rgb(145, 74, 29);
+        }
+
+        background-color: rgb(207, 214, 221);
+      }
+    }
+  }
+}
