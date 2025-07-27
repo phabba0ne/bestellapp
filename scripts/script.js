@@ -109,8 +109,9 @@ dishesManager.addDish({
 // #region initialization
 
 // makes sure everything is there before I use it, waits for DOMready event ...
+let allDishes = [];
 document.addEventListener("DOMContentLoaded", function () {
-  const allDishes = dishesManager.getAllDishes();
+  allDishes = dishesManager.getAllDishes();
   renderDishes(allDishes);
 
   const orderBtn = document.getElementById("orderBtn");
@@ -233,15 +234,8 @@ class Cart {
     }
   }
 }
-// #endregion Cart
-
-//# region instantiation
-
-const allDishes = dishesManager.getAllDishes();
-// after allDishes is defined
 const cart = new Cart();
-
-//# endregion instantiation
+// #endregion Cart
 
 function renderCartTotal(cartTotal) {
   const cartTotalRef = document.getElementById("cartTotal");
@@ -249,6 +243,35 @@ function renderCartTotal(cartTotal) {
     cartTotalRef.textContent = cartTotal + " €";
   }
 }
+
+
+// class restaurant
+
+// TODO next: show restaurant name, stars, desc, information (deliveryPrice) statically
+
+class Restaurant{
+  name="";
+  stars=0;
+  desc="";
+  deliveryPrice=0;
+
+  constructor(name, stars, desc, deliveryPrice){
+    this.name=name;
+    this.stars=stars;
+    this.desc=desc;
+    this.deliveryPrice=deliveryPrice;
+  }
+
+}
+
+const r = new Restaurant("Flavio", 4, "Italienische Spezialitäten", 4.45);
+console.log(r);
+
+// function renderInfo(){
+//   for(){
+
+//   }
+// }
 
 // class cart
 
@@ -260,10 +283,6 @@ function renderCartTotal(cartTotal) {
 
 // TEST: responsive to a width of 320px without vertical scroll bars?
 
-// class restaurant
 
-// TODO: show restaurant name, stars, desc, information (deliveryPrice) statically
-
-//optional
-
+// class restaurant optional
 // optional TODO: show meal slider linking to sections pizza, pasta, etc. separated from images
