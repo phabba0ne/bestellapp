@@ -33,7 +33,7 @@ header {
   justify-content: center;
   align-items: center;
   height: 30rem;
-  background: url("../assets/img/header_image.jpg") bottom no-repeat;
+  background: url("./assets/img/header_image.jpg") bottom no-repeat;
   background-size: cover;
   color: black;
   text-align: center;
@@ -168,18 +168,18 @@ aside h3 {
 }
 
 .cartWrapper .removeBtn {
-  background-image: url("../assets/icons/icon_remove.png");
+  background-image: url("./assets/icons/icon_remove.png");
   background-color: beige;
 }
 
 .cartWrapper .addBtn {
-  background-image: url("../assets/icons/icon_add.png");
+  background-image: url("./assets/icons/icon_add.png");
 
   background-color: beige;
 }
 
 .cartWrapper .delBtn {
-  background-image: url("../assets/icons/icon_delete.png");
+  background-image: url("./assets/icons/icon_delete.png");
   background-color: rgb(191, 165, 157);
 }
 
