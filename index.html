@@ -1,16 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Bestell App</title>
     <link rel="stylesheet" href="style.css" />
-    <link
-      rel="shortcut icon"
-      href="assets/icons/favicon.ico"
-      type="image/x-icon" />
+    <link rel="icon" href="assets/icons/favicon.ico" type="image/x-icon" />
   </head>
-
   <body>
     <header>
       <img id="logo" src="assets/logos/Logo.png" alt="Bestell App Logo" />
@@ -18,35 +14,27 @@
 
     <main>
       <div id="restaurantInfo"></div>
-
       <div class="contentWrapper">
         <div id="renderDishes"></div>
-
         <aside class="cartWrapper">
           <div id="cart">
             <h3>Your cart:</h3>
             <ul id="cartItems"></ul>
             <h3>Total order:</h3>
             <div id="cartTotal"></div>
-
             <button id="orderBtn">ORDER</button>
-            <p id="orderStatus" class="dNone">
-              Deine Testbestellung ist auf dem Weg!
-            </p>
+            <p id="orderStatus" class="dNone">Deine Testbestellung ist auf dem Weg!</p>
           </div>
         </aside>
       </div>
     </main>
-    <button
-      id="toggleCartBtn"
-      class="toggle-cart-btn"
-      aria-label="Warenkorb anzeigen">
+
+    <button id="toggleCartBtn" class="toggle-cart-btn" aria-label="Warenkorb anzeigen">
       🛒
     </button>
 
     <footer></footer>
 
-    <script type="module" src="scripts/script.js"></script>
     <script type="module" src="scripts/script.js"></script>
   </body>
 </html>

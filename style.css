@@ -20,7 +20,8 @@ button {
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
-  border: none;
+  border: 4px;
+  border-radius:16px;
 }
 
 .dNone {
@@ -35,6 +36,7 @@ header {
   height: 30rem;
   background: url("./assets/img/header_image.jpg") bottom no-repeat;
   background-size: cover;
+  background-position: center;
   color: black;
   text-align: center;
 }
@@ -52,40 +54,39 @@ main {
 
 main h1 {
   font-size: clamp(2rem, 5dvw, 6rem);
-  color: orange;
+  color: rgb(255, 166, 0);
 }
 
 main span {
   font-size: clamp(1.6rem, 3dvw, 3.5rem);
-  color: #fff;
+  color: #efe9e9;
 }
 
 .contentWrapper {
   width: 100%;
   display: flex;
   flex-grow: 1;
-  background-color: rgb(209, 145, 66);
+  background-color: rgb(197, 137, 64);
 }
 
 .content {
   width: 100%;
-  color: aqua;
-  background-color: aquamarine;
 }
 
-footer {
-  text-align: center;
-  height: 10dvh;
-  background-color: rgb(119, 38, 38);
-  color: white;
+.dishContainer {
+  cursor: pointer;
+  transition: background-color 0.25s ease-in-out;
 }
 
+.dishContainer:hover {
+  background-color: rgba(255, 0, 0, 0.093);
+}
 #renderDishes .dishContainer {
   width: 100%;
   display: flex;
   color: white;
-  padding: 1dvh 1dvw;
-  border: 1dvw solid white;
+  border-bottom: 1dvh solid white;
+  border-right: 1dvw solid white;
 }
 
 #renderDishes .dishContainer img {
@@ -100,124 +101,129 @@ footer {
   justify-content: center;
   align-items: center;
 }
-:hover{cursor:pointer}
 
 #renderDishes h2 {
-  font-size: clamp(1.8rem, 3dvw, 4rem);
+  font-size: clamp(1.8rem, 2dvw, 4rem);
 }
 
 #renderDishes p {
-  font-size: clamp(1.2rem, 1.8dvw, 2.4rem);
+  font-size: clamp(1.3rem, 1.8dvw, 2.4rem);
   text-align: center;
-  width: 50%;
-  padding: 1dvh 0;
+  width: 90%;
 }
-
 #orderBtn {
-  width: 18dvw;
-  aspect-ratio: 4/1;
+  font-size: 16px;
+  width:80px;
+  height:40px;
   color: white;
-  background-color: orange;
+  padding: 2%;
+  margin:5%;
+  background-color: #e7ad66c3;
   border: none;
 }
+#orderBtn:hover {
+  background-color: #ffa500;
+}
 
-.cartWrapper {
-  width: 100%;
-  color: rgb(194, 149, 44);
+.cartWrapper{
+  width:100%;
 }
 
 .cartWrapper > div {
   position: sticky;
   top: 0;
   overflow-y: auto;
-  background: rgb(226, 180, 131);
-  color: white;
+  background-color: rgba(255, 255, 255, 0.497);
+  color: rgb(203, 93, 38);
 }
 
 .cartWrapper h3,
 aside h3 {
-  font-size: clamp(1.8rem, 3dvw, 3.6rem);
-}
-
-.cartWrapper ul {
-  width: 100%;
+  font-size: clamp(1.5rem, 2dvw, 2.2rem);
+  margin: 2dvh 0;
 }
 
 .cartWrapper li {
   list-style-type: none;
+  height: auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1dvh 1dvw;
-  background-color: rgb(207, 214, 221);
-}
-
-.cartDishName {
-  font-size: clamp(1.2rem, 2dvw, 2rem);
+  background-color: rgba(207, 148, 19, 0.234);
 }
 
 .cartWrapper button {
-  padding: 1dvh 1dvw;
-  width: 3dvw;
-  aspect-ratio: 1.5/1;
-  background-color: rgb(238, 189, 98);
-  border-radius: 16px;
-}
-
-.cartWrapper button:hover {
-  background-color: rgb(226, 184, 49);
+  width: 30px;
+  height:30px;
+  aspect-ratio: 1/1;
 }
 
 .cartWrapper .removeBtn {
   background-image: url("./assets/icons/icon_remove.png");
-  background-color: beige;
+  background-color: #e1d1b3;
+}
+.removeBtn:hover {
+  background-color: #e5e0db;
 }
 
 .cartWrapper .addBtn {
   background-image: url("./assets/icons/icon_add.png");
-
-  background-color: beige;
+  background-color: #e1d1b3;
 }
-
+.addBtn:hover {
+  background-color: #e5e0db;
+}
 .cartWrapper .delBtn {
   background-image: url("./assets/icons/icon_delete.png");
-  background-color: rgb(191, 165, 157);
+  background-color: transparent;
 }
-
+.delBtn:hover {
+background-color: #811e1e4d;
+}
 .quantityInCart {
-  width: 10dvw;
+  width: 8dvw;
+  @media (min-width: 420px) {
+    display: none;
+  }
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 @media (max-width: 480px) {
+  .contentWrapper {
+    flex-direction: column;
+  }
+
+  .cartWrapper {
+    position: fixed;
+    inset: 0;
+    width: 100dvw;
+    height: 100dvh;
+  }
+}
+
+@media (max-width: 480px) {
   .cartWrapper {
     display: none;
     position: fixed;
-    inset: 0;
-    z-index: 1000;
-    background-color: rgba(196, 188, 176, 0.98);
-    padding: 1dvh 1dvw;
+    background-color: rgba(173, 168, 131, 0.467);
     overflow-y: auto;
-    align-items: space-between;
-    justify-content: center;
-    align-items: center;
-    box-shadow: 0 0 1rem rgba(0, 0, 0, 0.3);
+    box-shadow: 0 0 1rem rgba(211, 22, 22, 0.3);
   }
 
-  .cartWrapper.open {
-    display: flex;
-    width: 40dvw;
-    height: 40dvh;
-    border-radius: 36px;
-  }
+.cartWrapper.open {
+  display: flex;
+  width: 80dvw;
+  height: 80dvh;
+  border-radius: 24px;
+}
 
   .toggle-cart-btn {
     position: fixed;
     bottom: 2dvh;
     right: 2dvw;
-    background-color: rgb(219, 186, 115);
+    background-color: rgb(222, 214, 208);
     color: white;
     border: none;
     border-radius: 50%;
@@ -235,8 +241,7 @@ aside h3 {
     @media (min-width: 480px) {
       display: none;
     }
-    flex-direction: column;
-    align-items: center;
+
     .dishContainer {
       flex-grow: 1;
     }
@@ -245,8 +250,8 @@ aside h3 {
 
 .restaurant-description {
   font-size: 1.8rem;
-  color: #555;
-  margin-top: 0.5rem;
+  color: #ef8b21;
+  margin: 0.5rem;
 }
 
 .restaurant-stars {
@@ -282,3 +287,43 @@ aside h3 {
 .star.empty {
   color: lightgray;
 }
+
+footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 10dvh;
+  background-color: rgba(217, 143, 24, 0.64);
+  color: white;
+}
+
+@media (max-width: 768px) {
+        .contentWrapper {
+          flex-direction: column;
+        }
+
+        .cartWrapper {
+          display: none;
+        }
+
+        .cartWrapper.open {
+          display: flex;
+          position: fixed;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          width: 100vw;
+          height: 100vh;
+          background-color: rgba(255, 255, 255, 0.664);
+          z-index: 1000;
+          padding: 2rem;
+          overflow-y: auto;
+          flex-direction: column;
+          align-items: center;
+        }
+
+        .cartWrapper.open #cart {
+          width: 100%;
+        }
+      }

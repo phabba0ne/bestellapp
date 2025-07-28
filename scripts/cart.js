@@ -40,11 +40,11 @@ export class Cart {
     this.render();
   }
 
-  total() {
-    return this.items
-      .reduce((sum, d) => sum + d.price * d.amountInCart, 0)
-      .toLocaleString("de-DE");
-  }
+total() {
+  return this.items
+    .reduce((sum, d) => sum + d.price * d.amountInCart, 0)
+    .toLocaleString("de-DE", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+}
 
   render() {
     renderCart(this.items, this.total(), {
