@@ -47,7 +47,7 @@ header {
 
 main {
   text-align: center;
-  padding: 2dvh 0;
+  padding: 2dvh 2dvw;
 }
 
 main h1 {
@@ -61,7 +61,7 @@ main span {
 }
 
 .contentWrapper {
-  width: 80dvw;
+  width: 100%;
   display: flex;
   flex-grow: 1;
   background-color: rgb(209, 145, 66);
@@ -81,7 +81,7 @@ footer {
 }
 
 #renderDishes .dishContainer {
-  width: 80dvw;
+  width: 100%;
   display: flex;
   color: white;
   padding: 1dvh 1dvw;
@@ -89,9 +89,9 @@ footer {
 }
 
 #renderDishes .dishContainer img {
-  width: 40dvw;
-
-  -position: center;
+  width: 33.3%;
+  height: 30%;
+  aspect-ratio: 4/3;
 }
 
 #renderDishes .dishContainer div {
@@ -100,6 +100,7 @@ footer {
   justify-content: center;
   align-items: center;
 }
+:hover{cursor:pointer}
 
 #renderDishes h2 {
   font-size: clamp(1.8rem, 3dvw, 4rem);
