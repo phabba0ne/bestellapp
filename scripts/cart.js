@@ -1,35 +1,42 @@
-import { getCartItemTemplate } from "./scripts/template.js";
+import { renderCart } from "./render.js";
 
 export class Cart {
-  constructor(allDishes) {
-    this.allDishes = allDishes;
+  constructor(dishesManager) {
+    this.dishesManager = dishesManager;
     this.items = [];
   }
 
+  addById(id) {
+    const dish = this.dishesManager.getDishById(id);
+    this.add(dish);
+  }
+
   add(dish) {
-    const existing = this.items.find((d) => d.id === dish.id);
-    if (existing) {
-      existing.amountInCart++;
+    const found = this.items.find((d) => d.id === dish.id);
+    if (found) {
+      found.amountInCart++;
     } else {
-      dish.amountInCart = 1;
-      this.items.push(dish);
+      this.items.push({ ...dish, amountInCart: 1 });
     }
     this.render();
   }
 
-  remove(dish) {
-    const index = this.items.findIndex((d) => d.id === dish.id);
+  remove(id) {
+    const index = this.items.findIndex((d) => d.id === id);
     if (index !== -1) {
       this.items[index].amountInCart--;
-      if (this.items[index].amountInCart <= 0) {
-        this.items.splice(index, 1);
-      }
+      if (this.items[index].amountInCart <= 0) this.items.splice(index, 1);
     }
     this.render();
   }
 
-  removeDishCompletely(dishId) {
-    this.items = this.items.filter((d) => d.id !== dishId);
+  removeDishCompletely(id) {
+    this.items = this.items.filter((d) => d.id !== id);
+    this.render();
+  }
+
+  empty() {
+    this.items = [];
     this.render();
   }
 
@@ -39,35 +46,11 @@ export class Cart {
       .toLocaleString("de-DE");
   }
 
-  empty() {
-    this.items = [];
-    this.render();
-  }
-
   render() {
-    const cartRef = document.getElementById("cartItems");
-    cartRef.innerHTML = "";
-
-    for (const item of this.items) {
-      cartRef.innerHTML += getCartItemTemplate(item);
-    }
-
-    renderCartTotal(this.total());
-
-    const wrappers = document.querySelectorAll(".itemWrapper");
-    wrappers.forEach((wrapper) => {
-      const id = parseInt(wrapper.dataset.id);
-      const dish = this.allDishes.find((d) => d.id === id);
-
-      wrapper
-        .querySelector(".addBtn")
-        ?.addEventListener("click", () => this.add(dish));
-      wrapper
-        .querySelector(".removeBtn")
-        ?.addEventListener("click", () => this.remove(dish));
-      wrapper
-        .querySelector(".delBtn")
-        ?.addEventListener("click", () => this.removeDishCompletely(dish.id));
+    renderCart(this.items, this.total(), {
+      add: (id) => this.addById(id),
+      remove: (id) => this.remove(id),
+      removeAll: (id) => this.removeDishCompletely(id),
     });
   }
 }

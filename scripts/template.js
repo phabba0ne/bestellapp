@@ -1,4 +1,4 @@
-function getDishTemplate(dish) {
+export function getDishTemplate(dish) {
   return `
     <div class="dishContainer" data-id="${dish.id}">
       <img src="${dish.imgSrc}" alt="${dish.name}" class="dish-img" />
@@ -11,7 +11,7 @@ function getDishTemplate(dish) {
   `;
 }
 
-function getCartItemTemplate(dish) {
+export function getCartItemTemplate(dish) {
   return `
     <div class="itemWrapper" data-id="${dish.id}">
       <div class="showName">${dish.name}</div>
@@ -21,9 +21,7 @@ function getCartItemTemplate(dish) {
         <button class="addBtn" aria-label="Add Dish"></button>
         <button class="delBtn" aria-label="Empty Cart"></button>
       </li>
-      <div class="showOrderPrice">${(
-        dish.price * dish.amountInCart
-      ).toLocaleString("de-DE")} €</div>
+      <div class="showOrderPrice">${(dish.price * dish.amountInCart).toLocaleString("de-DE")} €</div>
     </div>
   `;
 }
