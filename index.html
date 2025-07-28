@@ -12,24 +12,17 @@
   </head>
 
   <body>
-    <!-- #region header -->
     <header>
       <img id="logo" src="assets/logos/Logo.png" alt="Bestell App Logo" />
     </header>
-    <!-- #endregion header -->
 
     <main>
-      <h1>Restaurant Flavio</h1>
-      <span>Italienisch für Feinschmecker</span>
-      <!-- #region contentWrapper -->
+      <div id="restaurantInfo"></div>
+
       <div class="contentWrapper">
         <div id="renderDishes"></div>
 
-        <!-- #region cartWrapper -->
-
         <aside class="cartWrapper">
-          <!-- #region cartList -->
-
           <div id="cart">
             <h3>Your cart:</h3>
             <ul id="cartItems"></ul>
@@ -41,12 +34,8 @@
               Deine Testbestellung ist auf dem Weg!
             </p>
           </div>
-          <!-- #endregion cartList -->
         </aside>
-        <!-- #endregion cartWrapper -->
       </div>
-
-      <!-- #endregion contentWrapper -->
     </main>
     <button
       id="toggleCartBtn"
@@ -54,9 +43,8 @@
       aria-label="Warenkorb anzeigen">
       🛒
     </button>
-    <!-- #region footer -->
+
     <footer></footer>
-    <!-- #endregion footer -->
 
     <script src="scripts/template.js" defer></script>
     <script type="module" src="scripts/script.js"></script>

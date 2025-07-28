@@ -1,4 +1,3 @@
-/* ==================== RESET & BASE ==================== */
 * {
   padding: 0;
   margin: 0;
@@ -24,12 +23,10 @@ button {
   border: none;
 }
 
-/* ==================== UTILS ==================== */
 .dNone {
   display: none;
 }
 
-/* ==================== HEADER ==================== */
 header {
   display: flex;
   flex-direction: column;
@@ -48,7 +45,6 @@ header {
   z-index: 10;
 }
 
-/* ==================== MAIN ==================== */
 main {
   text-align: center;
   padding: 2dvh 0;
@@ -64,7 +60,6 @@ main span {
   color: #fff;
 }
 
-/* ==================== CONTENT WRAPPER ==================== */
 .contentWrapper {
   width: 80dvw;
   display: flex;
@@ -78,7 +73,6 @@ main span {
   background-color: aquamarine;
 }
 
-/* ==================== FOOTER ==================== */
 footer {
   text-align: center;
   height: 10dvh;
@@ -86,7 +80,6 @@ footer {
   color: white;
 }
 
-/* ==================== DISHES ==================== */
 #renderDishes .dishContainer {
   width: 80dvw;
   display: flex;
@@ -97,6 +90,8 @@ footer {
 
 #renderDishes .dishContainer img {
   width: 40dvw;
+
+  -position: center;
 }
 
 #renderDishes .dishContainer div {
@@ -117,22 +112,17 @@ footer {
   padding: 1dvh 0;
 }
 
-/* ==================== ORDER BUTTON ==================== */
 #orderBtn {
-  width: 100%;
-  aspect-ratio: 3/1;
+  width: 18dvw;
+  aspect-ratio: 4/1;
   color: white;
   background-color: orange;
   border: none;
 }
 
-/* ==================== CART ==================== */
 .cartWrapper {
-  width: 20dvw;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
+ width: 100%;
+ 
   color: rgb(193, 159, 79);
 }
 
@@ -154,10 +144,10 @@ aside h3 {
 .cartWrapper li {
   list-style-type: none;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   background-color: rgb(207, 214, 221);
-  padding: 1dvh 0;
+
 }
 
 .cartDishName {
@@ -166,13 +156,13 @@ aside h3 {
 
 .cartWrapper button {
   padding: 1dvh 1dvw;
-  width: 2dvw;
-  aspect-ratio: 1/1;
-  background-color: rgb(228, 200, 147);
+  width: 3dvw;
+  aspect-ratio: 1.5/1;
+  background-color: rgb(238, 189, 98);
 }
 
 .cartWrapper button:hover {
-  background-color: rgb(211, 186, 140);
+  background-color: rgb(226, 184, 49);
 }
 
 .cartWrapper .removeBtn {
@@ -202,7 +192,6 @@ aside h3 {
   color: rgb(145, 74, 29);
 }
 
-/* ==================== CART OVERLAY MOBILE ==================== */
 @media (max-width: 480px) {
   .cartWrapper {
     display: none;
@@ -220,6 +209,7 @@ aside h3 {
 
   .cartWrapper.open {
     display: flex;
+    width: 100%;
   }
 
   .toggle-cart-btn {
@@ -227,7 +217,7 @@ aside h3 {
     position: fixed;
     bottom: 2rem;
     right: 2rem;
-    background-color: orange;
+    background-color: rgb(228, 172, 66);
     color: white;
     border: none;
     border-radius: 50%;
@@ -243,7 +233,51 @@ aside h3 {
   }
 
   .contentWrapper {
+    flex-grow: 1;
     flex-direction: column;
     align-items: center;
+    .dishContainer {
+      flex-grow: 1;
+    }
   }
+}
+
+.restaurant-description {
+  font-size: 1.6rem;
+  color: #555;
+  margin-top: 0.5rem;
+}
+
+.restaurant-stars {
+  font-size: 1.8rem;
+  color: #ffa500; /* orange stars */
+  margin-bottom: 0.5rem;
+}
+
+.star {
+  color: lightgray;
+  margin-right: 0.1rem;
+  position: relative;
+  display: inline-block;
+}
+
+/* Full star */
+.star.full {
+  color: #ffa500;
+}
+
+/* Half star */
+.star.half::before {
+  content: "★";
+  color: #ffa500;
+  position: absolute;
+  width: 50%;
+  overflow: hidden;
+  left: 0;
+  top: 0;
+}
+
+/* Empty star */
+.star.empty {
+  color: lightgray;
 }

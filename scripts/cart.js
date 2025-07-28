@@ -1,9 +1,6 @@
-
-
-import { getDishTemplate, getCartItemTemplate } from './scripts/template.js';
+import { getCartItemTemplate } from "./scripts/template.js";
 
 export class Cart {
-    
   constructor(allDishes) {
     this.allDishes = allDishes;
     this.items = [];
@@ -37,7 +34,9 @@ export class Cart {
   }
 
   total() {
-    return this.items.reduce((sum, d) => sum + d.price * d.amountInCart, 0).toLocaleString("de-DE");
+    return this.items
+      .reduce((sum, d) => sum + d.price * d.amountInCart, 0)
+      .toLocaleString("de-DE");
   }
 
   empty() {
@@ -60,9 +59,15 @@ export class Cart {
       const id = parseInt(wrapper.dataset.id);
       const dish = this.allDishes.find((d) => d.id === id);
 
-      wrapper.querySelector(".addBtn")?.addEventListener("click", () => this.add(dish));
-      wrapper.querySelector(".removeBtn")?.addEventListener("click", () => this.remove(dish));
-      wrapper.querySelector(".delBtn")?.addEventListener("click", () => this.removeDishCompletely(dish.id));
+      wrapper
+        .querySelector(".addBtn")
+        ?.addEventListener("click", () => this.add(dish));
+      wrapper
+        .querySelector(".removeBtn")
+        ?.addEventListener("click", () => this.remove(dish));
+      wrapper
+        .querySelector(".delBtn")
+        ?.addEventListener("click", () => this.removeDishCompletely(dish.id));
     });
   }
 }

@@ -1,14 +1,8 @@
-// #region Dish
-
-// a single dish
 class Dish {
-  // static counter
   static idCounter = 0;
   amountInCart = 0;
 
-  // every dish object created ...
   constructor({ name, desc, price, imgSrc, amountInCart }) {
-    // contains an unambiguous identifier
     this.id = Dish.idCounter++;
     this.name = name;
     this.desc = desc;
@@ -17,9 +11,7 @@ class Dish {
     this.amountInCart = amountInCart;
   }
 }
-// #endregion Dish
 
-// #region Dishes
 class Dishes {
   alldishes = [];
 
@@ -30,15 +22,10 @@ class Dishes {
   }
 
   getAllDishes() {
-    //shallow copy - prevents manipulation of original object
     return [...this.alldishes];
   }
 }
-// #endregion Dishes
 
-// #region dishesManager
-
-//create object for changing dish data
 const dishesManager = new Dishes();
 
 dishesManager.addDish({
@@ -104,11 +91,6 @@ dishesManager.addDish({
   imgSrc: "assets/img/pasta/pasta_03.jpg",
 });
 
-// #endregion dishesManager
-
-// #region initialization
-
-// makes sure everything is there before I use it, waits for DOMready event ...
 let allDishes = [];
 document.addEventListener("DOMContentLoaded", function () {
   allDishes = dishesManager.getAllDishes();
@@ -134,37 +116,26 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
-// #endregion initialization
-
-// #region rendering
-
 function renderDishes(allDishes) {
   const dishesRef = document.getElementById("renderDishes");
-  //delete previous content
   dishesRef.innerHTML = "";
 
   for (let i = 0; i < allDishes.length; i++) {
-    //calls template function
     dishesRef.innerHTML += getDishTemplate(allDishes[i]);
   }
 
   const dishContainers = document.querySelectorAll(".dishContainer");
   for (let i = 0; i < dishContainers.length; i++) {
-    //converts string to number (for access to index or id)
     const id = parseInt(dishContainers[i].dataset.id);
     dishContainers[i].addEventListener("click", () => cart.add(allDishes[id]));
   }
 }
-//#endregion rendering
-
-// #region Cart
 
 class Cart {
   constructor() {
     this.items = [];
   }
 
-  // adds dish to cart or incrementally increases amount in cart
   add(dish) {
     for (let i = 0; i < this.items.length; i++) {
       if (this.items[i].id === dish.id) {
@@ -177,7 +148,6 @@ class Cart {
     this.render();
   }
 
-  // removes dish from cart or incrementally decreases amount in cart
   remove(dish) {
     for (let i = 0; i < this.items.length; i++) {
       if (this.items[i].id === dish.id) {
@@ -217,7 +187,6 @@ class Cart {
 
     renderCartTotal(this.total());
 
-    // Attach events after rendering
     const itemWrappers = document.querySelectorAll(".itemWrapper");
     for (let i = 0; i < itemWrappers.length; i++) {
       const wrapper = itemWrappers[i];
@@ -240,7 +209,6 @@ class Cart {
   }
 }
 const cart = new Cart();
-// #endregion Cart
 
 function renderCartTotal(cartTotal) {
   const cartTotalRef = document.getElementById("cartTotal");
@@ -249,42 +217,51 @@ function renderCartTotal(cartTotal) {
   }
 }
 
-// class restaurant
-
-// TODO next: show restaurant name, stars, desc, information (deliveryPrice) statically
-
 class Restaurant {
-  name = "";
-  stars = 0;
-  desc = "";
-  deliveryPrice = 0;
-
-  constructor(name, stars, desc, deliveryPrice) {
+  constructor(name, description, stars) {
     this.name = name;
-    this.stars = stars;
-    this.desc = desc;
-    this.deliveryPrice = deliveryPrice;
+    this.description = description;
+    this.stars = stars; // e.g., 4.5
+  }
+
+  renderStars() {
+    const fullStars = Math.floor(this.stars);
+    const halfStar = this.stars % 1 >= 0.5 ? 1 : 0;
+    const emptyStars = 5 - fullStars - halfStar;
+
+    let starsHTML = "";
+    for (let i = 0; i < fullStars; i++) {
+      starsHTML += '<span class="star full">&#9733;</span>';
+    }
+    if (halfStar) {
+      starsHTML += '<span class="star half">&#9733;</span>';
+    }
+    for (let i = 0; i < emptyStars; i++) {
+      starsHTML += '<span class="star empty">&#9733;</span>';
+    }
+    return starsHTML;
+  }
+
+  render(selector) {
+    const container = document.querySelector(selector);
+    if (!container) {
+      console.error("Selector not found:", selector);
+      return;
+    }
+
+    container.innerHTML = `
+      <h1>${this.name}</h2>
+      <div class="restaurant-stars">${this.renderStars()}</div>
+      <p class="restaurant-description">${this.description}</p>
+    `;
   }
 }
+const myRestaurant = new Restaurant(
+  "Savor Bistro",
+  "A cozy place with fresh seasonal dishes.",
+  4.5
+);
 
-const r = new Restaurant("Flavio", 4, "Italienische Spezialitäten", 4.45);
-console.log(r);
-
-// function renderInfo(){
-//   for(){
-
-//   }
-// }
-
-// class cart
-
-// TODO: order button which deletes cart and triggers a prompt telling that a test order is on its way
-// (button named orderBtn DONE)
-
-// TODO: cart appears as a row at the bottom latest at with 320px;
-// process: dNone cart at that point and show a button that calls an overlay cart (with same functionality ?)
-
-// TEST: responsive to a width of 320px without vertical scroll bars?
-
-// class restaurant optional
-// optional TODO: show meal slider linking to sections pizza, pasta, etc. separated from images
+document.addEventListener("DOMContentLoaded", () => {
+  myRestaurant.render("#restaurantInfo");
+});
