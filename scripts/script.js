@@ -116,6 +116,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
   const orderBtn = document.getElementById("orderBtn");
   const orderStatus = document.getElementById("orderStatus");
+  const cartWrapper = document.querySelector(".cartWrapper");
+  const toggleCartBtn = document.getElementById("toggleCartBtn");
+  toggleCartBtn.addEventListener("click", () => {
+    cartWrapper.classList.toggle("open");
+  });
 
   orderBtn.addEventListener("click", () => {
     cart.empty();
@@ -244,24 +249,22 @@ function renderCartTotal(cartTotal) {
   }
 }
 
-
 // class restaurant
 
 // TODO next: show restaurant name, stars, desc, information (deliveryPrice) statically
 
-class Restaurant{
-  name="";
-  stars=0;
-  desc="";
-  deliveryPrice=0;
+class Restaurant {
+  name = "";
+  stars = 0;
+  desc = "";
+  deliveryPrice = 0;
 
-  constructor(name, stars, desc, deliveryPrice){
-    this.name=name;
-    this.stars=stars;
-    this.desc=desc;
-    this.deliveryPrice=deliveryPrice;
+  constructor(name, stars, desc, deliveryPrice) {
+    this.name = name;
+    this.stars = stars;
+    this.desc = desc;
+    this.deliveryPrice = deliveryPrice;
   }
-
 }
 
 const r = new Restaurant("Flavio", 4, "Italienische Spezialitäten", 4.45);
@@ -282,7 +285,6 @@ console.log(r);
 // process: dNone cart at that point and show a button that calls an overlay cart (with same functionality ?)
 
 // TEST: responsive to a width of 320px without vertical scroll bars?
-
 
 // class restaurant optional
 // optional TODO: show meal slider linking to sections pizza, pasta, etc. separated from images

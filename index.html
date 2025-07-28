@@ -1,60 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bestell App</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="shortcut icon"
+      href="assets/icons/favicon.ico"
+      type="image/x-icon" />
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Bestell App</title>
-  <link rel="stylesheet" href="styles/style.css" />
-  <link rel="stylesheet" href="styles/globals.css" />
-  <link rel="stylesheet" href="styles/cart.css" />
-  <link rel="shortcut icon" href="assets/icons/favicon.ico" type="image/x-icon" />
-</head>
+  <body>
+    <!-- #region header -->
+    <header>
+      <img id="logo" src="assets/logos/Logo.png" alt="Bestell App Logo" />
+    </header>
+    <!-- #endregion header -->
 
-<body>
-  <!-- #region header -->
-  <header>
-    <img id="logo" src="assets/logos/Logo.png" alt="Bestell App Logo" />
-  </header>
-  <!-- #endregion header -->
+    <main>
+      <h1>Restaurant Flavio</h1>
+      <span>Italienisch für Feinschmecker</span>
+      <!-- #region contentWrapper -->
+      <div class="contentWrapper">
+        <div id="renderDishes"></div>
 
-  <main>
-    <h1>Restaurant Flavio</h1>
-    <span>Italienisch für Feinschmecker</span>
-    <!-- #region contentWrapper -->
-    <div class="contentWrapper">
-      <div id="renderDishes"></div>
+        <!-- #region cartWrapper -->
 
-      <!-- #region cartWrapper -->
+        <aside class="cartWrapper">
+          <!-- #region cartList -->
 
-      <aside class="cartWrapper">
-        <!-- #region cartList -->
+          <div id="cart">
+            <h3>Your cart:</h3>
+            <ul id="cartItems"></ul>
+            <h3>Total order:</h3>
+            <div id="cartTotal"></div>
 
-        <div id="cart">
-          <h3>Your cart:</h3>
-          <ul id="cartItems"></ul>
-          <h3>Total order:</h3>
-          <div id="cartTotal"></div>
+            <button id="orderBtn">ORDER</button>
+            <p id="orderStatus" class="dNone">
+              Deine Testbestellung ist auf dem Weg!
+            </p>
+          </div>
+          <!-- #endregion cartList -->
+        </aside>
+        <!-- #endregion cartWrapper -->
+      </div>
 
-          <button id="orderBtn">ORDER</button>
-          <p id="orderStatus" class="dNone">
-            Deine Testbestellung ist auf dem Weg!
-          </p>
-        </div>
-        <!-- #endregion cartList -->
-      </aside>
-      <!-- #endregion cartWrapper -->
-    </div>
+      <!-- #endregion contentWrapper -->
+    </main>
+    <button
+      id="toggleCartBtn"
+      class="toggle-cart-btn"
+      aria-label="Warenkorb anzeigen">
+      🛒
+    </button>
+    <!-- #region footer -->
+    <footer></footer>
+    <!-- #endregion footer -->
 
-    <!-- #endregion contentWrapper -->
-  </main>
-
-  <!-- #region footer -->
-  <footer></footer>
-  <!-- #endregion footer -->
-
-  <script src="scripts/template.js" defer></script>
-  <script type="module" src="scripts/script.js"></script>
-</body>
-
+    <script src="scripts/template.js" defer></script>
+    <script type="module" src="scripts/script.js"></script>
+  </body>
 </html>
